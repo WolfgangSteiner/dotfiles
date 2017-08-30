@@ -22,6 +22,8 @@ font pango:monospace 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 10
 for_window [class="^.*"] border pixel 0
+for_window [instance="copyq" class="copyq"] border pixel 0, floating enable
+
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -40,6 +42,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 exec --no-startup-id /usr/bin/synclient VertScrollDelta=-113
 exec --no-startup-id /usr/bin/synclient PalmDetect=1
 exec --no-startup-id /usr/bin/synclient VertEdgeScroll=0
+exec --no-startup-id /usr/bin/synclient HorizTwoFingerScroll 1
 
 # redshift
 exec --no-startup-id redshift
@@ -128,8 +131,8 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-bindsym XF86MonBrightnessUp exec /usr/bin/light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec /usr/bin/light -U 5
+bindsym XF86MonBrightnessUp exec /usr/local/bin/light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec /usr/local/bin/light -U 5
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
@@ -167,6 +170,10 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+bindsym Mod1+space exec --no-startup-id /usr/bin/copyq toggle
+bindsym Print exec --no-startup-id /usr/bin/gnome-screenshot -w -f ~/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
+bindsym Shift+Print exec /usr/bin/gnome-screenshot -a -f ~/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

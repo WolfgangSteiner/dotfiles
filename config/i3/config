@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-exec --no-startup-id xrandr --dpi 180
+#exec --no-startup-id xrandr --dpi 180
 exec --no-startup-id nm-applet
 
 set $mod Mod4

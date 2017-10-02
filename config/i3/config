@@ -39,15 +39,12 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # "natural" scrolling
-exec --no-startup-id /usr/bin/synclient VertScrollDelta=-113
-exec --no-startup-id /usr/bin/synclient PalmDetect=1
-exec --no-startup-id /usr/bin/synclient VertEdgeScroll=0
-exec --no-startup-id /usr/bin/synclient HorizTwoFingerScroll 1
 
 # redshift
 exec --no-startup-id redshift
 
 # kill focused window
+exec --no-startup-id /usr/bin/mate-settings-daemon
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)

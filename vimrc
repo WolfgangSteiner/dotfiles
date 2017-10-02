@@ -5,3 +5,7 @@ set tabstop=4
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
+
+call plug#begin('~/.vim/plugged')
+  Plug('https://github.com/tpope/vim-fugitive')
+call plug#end()

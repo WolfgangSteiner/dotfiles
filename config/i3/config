@@ -193,7 +193,7 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-bindsym Mod1+space exec --no-startup-id /usr/bin/copyq toggle
+bindsym Mod1+Shift+v exec --no-startup-id /usr/bin/copyq toggle
 bindsym Print exec --no-startup-id /usr/bin/gnome-screenshot -w -f ~/Dropbox/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
 bindsym Shift+Print exec /usr/bin/gnome-screenshot -a -f ~/Dropbox/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
 

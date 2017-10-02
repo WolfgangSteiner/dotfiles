@@ -38,13 +38,12 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# "natural" scrolling
-
-# redshift
-exec --no-startup-id redshift
-
-# kill focused window
+# start helpers:
+exec --no-startup-id /usr/bin/redshift
 exec --no-startup-id /usr/bin/mate-settings-daemon
+exec --no-startup-id /usr/bin/copyq
+
+# kill focused window 
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)

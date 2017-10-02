@@ -202,5 +202,6 @@ bindsym Shift+Print exec /usr/bin/gnome-screenshot -a -f ~/Dropbox/Screenshots/S
 bar {
         position top
         status_command i3status
+        font pango:monospace 9
       #  tray_output primary
 }

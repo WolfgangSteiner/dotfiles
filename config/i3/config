@@ -205,5 +205,8 @@ bar {
         position top
         status_command i3status
         font pango:monospace 9
+        mode hide
+        hidden_state hide
+        modifier $mod
       #  tray_output primary
 }

@@ -13,7 +13,7 @@
 exec --no-startup-id nm-applet
 
 # Fix screen tearing
-exec --no-startup-id compton --vsync opengl-swc --backend glx 
+exec --no-startup-id compton --vsync opengl-swc --backend glx --no-fading-openclose --no-fading-destroyed-argb 
 
 set $mod Mod4
 
@@ -43,7 +43,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 # start helpers:
 exec --no-startup-id /usr/bin/redshift
-exec --no-startup-id /usr/bin/mate-settings-daemon
+exec --no-startup-id /lib/mate-settings-daemon/mate-settings-daemon
 exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/dropbox start
 
@@ -156,9 +156,6 @@ bindsym $mod+Mod1+Shift+7 move container to workspace 17
 bindsym $mod+Mod1+Shift+8 move container to workspace 18
 bindsym $mod+Mod1+Shift+9 move container to workspace 19
 bindsym $mod+Mod1+Shift+0 move container to workspace 20
-
-
-
 
 
 bindsym XF86MonBrightnessUp exec /usr/local/bin/light -A 5 # increase screen brightness

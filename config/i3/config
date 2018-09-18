@@ -56,7 +56,7 @@ exec /usr/bin/google-chrome
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec "rofi -modi run,web:/home/wolfgang/.dotfiles/rofi/web.py,ssh -show run" 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.

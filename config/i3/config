@@ -44,6 +44,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 # start helpers:
 exec --no-startup-id /usr/bin/redshift
 exec --no-startup-id /lib/mate-settings-daemon/mate-settings-daemon
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh
 exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/dropbox start
 

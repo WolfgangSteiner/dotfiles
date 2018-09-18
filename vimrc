@@ -25,7 +25,7 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
-set guifont=Inconsolata\ 14
+set guifont=Inconsolata\ 12
 set go-=m
 set go-=r
 set cm=blowfish2

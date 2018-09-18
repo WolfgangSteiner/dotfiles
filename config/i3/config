@@ -158,6 +158,29 @@ bindsym $mod+Mod1+Shift+8 move container to workspace 18
 bindsym $mod+Mod1+Shift+9 move container to workspace 19
 bindsym $mod+Mod1+Shift+0 move container to workspace 20
 
+bindsym $mod+Mod1+q workspace 21
+bindsym $mod+Mod1+w workspace 22
+bindsym $mod+Mod1+e workspace 23
+bindsym $mod+Mod1+r workspace 24
+bindsym $mod+Mod1+t workspace 25
+bindsym $mod+Mod1+z workspace 26
+bindsym $mod+Mod1+u workspace 27
+bindsym $mod+Mod1+i workspace 28
+bindsym $mod+Mod1+o workspace 29
+bindsym $mod+Mod1+p workspace 30
+
+bindsym $mod+Mod1+Shift+q move container to workspace 21
+bindsym $mod+Mod1+Shift+w move container to workspace 22
+bindsym $mod+Mod1+Shift+e move container to workspace 23
+bindsym $mod+Mod1+Shift+r move container to workspace 24
+bindsym $mod+Mod1+Shift+t move container to workspace 25
+bindsym $mod+Mod1+Shift+z move container to workspace 26
+bindsym $mod+Mod1+Shift+u move container to workspace 27
+bindsym $mod+Mod1+Shift+i move container to workspace 28
+bindsym $mod+Mod1+Shift+o move container to workspace 29
+bindsym $mod+Mod1+Shift+p move container to workspace 30 
+
+bindsym $mod+Tab workspace back_and_forth
 
 bindsym XF86MonBrightnessUp exec /usr/local/bin/light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec /usr/local/bin/light -U 5

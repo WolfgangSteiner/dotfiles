@@ -119,8 +119,6 @@ fi
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/:/usr/local/lib64/
 export EDITOR=vim
 export GIT_EDITOR='vim +startinsert'
-source /opt/ros/kinetic/setup.bash
-source ~/.dotfiles/tmuxinator/tmuxinator.bash
 
 # added by Miniconda3 installer
 export PATH="/home/wolfgang/miniconda3/bin:$PATH"

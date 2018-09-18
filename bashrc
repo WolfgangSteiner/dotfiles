@@ -121,5 +121,5 @@ export EDITOR=vim
 export GIT_EDITOR='vim +startinsert'
 export $(gnome-keyring-daemon -s)
 
-# added by Miniconda3 installer
-export PATH="/home/wolfgang/miniconda3/bin:$PATH"
+
+export PATH=~/.gem/ruby/2.5.0/bin:$PATH

@@ -47,5 +47,5 @@ else:
     write_history(history)
     
     with open(os.devnull, 'wb') as devnull:
-        subprocess.check_call(['chrome', '--app=' + url], stdout=devnull, stderr=devnull)
+        subprocess.check_call(['chrome', url, '--new-window'], stdout=devnull, stderr=devnull)
 

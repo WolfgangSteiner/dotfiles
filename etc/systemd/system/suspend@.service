@@ -1,0 +1,18 @@
+[Unit]
+Description=User suspend actions
+Before=suspend.target
+Before=hybrid-sleep.target
+Before=hibernate.target
+
+[Service]
+User=%I
+Type=forking
+Environment=DISPLAY=:0
+#ExecStart=/home/wolfgang/.dotfiles/scripts/lock-screen.bash 
+ExecStart=/usr/bin/i3lock -e -i /home/wolfgang/.dotfiles/img/lockscreen-black.png
+ExecStartPost=/usr/bin/sleep 9
+
+[Install]
+WantedBy=suspend.target
+WantedBy=hybrid-sleep.target
+WantedBy=hibernate.target

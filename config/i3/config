@@ -262,7 +262,7 @@ assign [class="web.whatsapp.com"] 32
 # finds out, if available)
 bar {
         position top
-        status_command i3status 
+        status_command py3status 
         font pango:monospace 10
         mode hide
         hidden_state hide

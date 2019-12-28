@@ -21,13 +21,14 @@ client.focused          #333333 #ff0000 #aaaaaa #0088aa #666666
 client.focused_inactive #333333 #000000 #aaaaaa #000000 #333333
 
 # Dropdown shell
-for_window [title="DROPDOWN"] floating enable
-for_window [title="DROPDOWN"] border pixel 0
-for_window [title="DROPDOWN"] move scratchpad
-for_window [title="DROPDOWN"] resize set 960 480
-for_window [title="DROPDOWN"] move position 960 600
-exec --no-startup-id /usr/bin/terminator -T DROPDOWN --profile=dropdown
+for_window [title="DROPDOWN"] floating enable, border pixel 2, move scatchpad, resize set 956 120 
+for_window [title="DROPDOWN1"] move position 0 0
+for_window [title="DROPDOWN2"] move position 962 0
+
+exec --no-startup-id /usr/bin/terminator -T DROPDOWN1 --profile=dropdown
+exec --no-startup-id /usr/bin/terminator -T DROPDOWN2 --profile=dropdown
 bindsym $mod+u [title="DROPDOWN"] scratchpad show
+
 
 for_window [title="~/todo/*"] floating enable
 for_window [title="~/todo/*"] resize set 960 1000

@@ -97,6 +97,11 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+Mod1+h split h
 bindsym $mod+Mod1+v split v
 
+bindsym $mod+Mod1+j exec "switch_workspace previous"
+bindsym $mod+Mod1+k exec "switch_workspace next"
+
+
+
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Mod1+f floating toggle

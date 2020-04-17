@@ -124,98 +124,111 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace 101
+bindsym $mod+2 workspace 102
+bindsym $mod+3 workspace 103
+bindsym $mod+4 workspace 104
+bindsym $mod+5 workspace 105
+bindsym $mod+6 workspace 106
+bindsym $mod+7 workspace 107
+bindsym $mod+8 workspace 108
+bindsym $mod+9 workspace 109
+bindsym $mod+0 workspace 110
+bindsym $mod+ssharp workspace 111 
+bindsym $mod+acute workspace  112 
 
-bindsym $mod+Mod1+1 workspace 11
-bindsym $mod+Mod1+2 workspace 12
-bindsym $mod+Mod1+3 workspace 13
-bindsym $mod+Mod1+4 workspace 14
-bindsym $mod+Mod1+5 workspace 15
-bindsym $mod+Mod1+6 workspace 16
-bindsym $mod+Mod1+7 workspace 17
-bindsym $mod+Mod1+8 workspace 18
-bindsym $mod+Mod1+9 workspace 19
-bindsym $mod+Mod1+0 workspace 20
+bindsym $mod+F1 workspace 201
+bindsym $mod+F2 workspace 202
+bindsym $mod+F3 workspace 203
+bindsym $mod+F4 workspace 204
+bindsym $mod+F5 workspace 205
+bindsym $mod+F6 workspace 206
+bindsym $mod+F7 workspace 207
+bindsym $mod+F8 workspace 208
+bindsym $mod+F9 workspace 209
+bindsym $mod+F10 workspace 210
+bindsym $mod+F11 workspace 211
+bindsym $mod+F12 workspace 212
 
-bindsym $mod+Mod1+q workspace 21
-bindsym $mod+Mod1+w workspace 22
-bindsym $mod+Mod1+e workspace 23
-bindsym $mod+Mod1+r workspace 24
-bindsym $mod+Mod1+t workspace 25
-bindsym $mod+Mod1+z workspace 26
-bindsym $mod+Mod1+u workspace 27
-bindsym $mod+Mod1+i workspace 28
-bindsym $mod+Mod1+o workspace 29
-bindsym $mod+Mod1+p workspace 30
+bindsym $mod+Mod1+1 workspace 301
+bindsym $mod+Mod1+2 workspace 302
+bindsym $mod+Mod1+3 workspace 303
+bindsym $mod+Mod1+4 workspace 304
+bindsym $mod+Mod1+5 workspace 305
+bindsym $mod+Mod1+6 workspace 306
+bindsym $mod+Mod1+7 workspace 307
+bindsym $mod+Mod1+8 workspace 308
+bindsym $mod+Mod1+9 workspace 309
+bindsym $mod+Mod1+0 workspace 310
+bindsym $mod+Mod1+ssharp workspace 311 
+bindsym $mod+Mod1+acute workspace  312 
 
-bindsym $mod+F1 workspace 31
-bindsym $mod+F2 workspace 32
-bindsym $mod+F3 workspace 33
-bindsym $mod+F4 workspace 34
-bindsym $mod+F5 workspace 35
-bindsym $mod+F6 workspace 36
-bindsym $mod+F7 workspace 37
-bindsym $mod+F8 workspace 38
-bindsym $mod+F9 workspace 39
-bindsym $mod+F10 workspace 40
-bindsym $mod+F11 workspace 41
-bindsym $mod+F12 workspace 42
+bindsym $mod+Mod1+q workspace 401
+bindsym $mod+Mod1+w workspace 402
+bindsym $mod+Mod1+e workspace 403
+bindsym $mod+Mod1+r workspace 404
+bindsym $mod+Mod1+t workspace 405
+bindsym $mod+Mod1+z workspace 406
+bindsym $mod+Mod1+u workspace 407
+bindsym $mod+Mod1+i workspace 408
+bindsym $mod+Mod1+o workspace 409
+bindsym $mod+Mod1+p workspace 410
+bindsym $mod+Mod1+udiaeresis workspace 411
+bindsym $mod+Mod1+plus workspace 412
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace 101
+bindsym $mod+Shift+2 move container to workspace 102
+bindsym $mod+Shift+3 move container to workspace 103
+bindsym $mod+Shift+4 move container to workspace 104
+bindsym $mod+Shift+5 move container to workspace 105
+bindsym $mod+Shift+6 move container to workspace 106
+bindsym $mod+Shift+7 move container to workspace 107
+bindsym $mod+Shift+8 move container to workspace 108
+bindsym $mod+Shift+9 move container to workspace 109
+bindsym $mod+Shift+0 move container to workspace 110
+bindsym $mod+Shift+ssharp move container to workspace 111 
+bindsym $mod+Shift+acute move container to workspace  112 
 
-bindsym $mod+Mod1+Shift+1 move container to workspace 11
-bindsym $mod+Mod1+Shift+2 move container to workspace 12
-bindsym $mod+Mod1+Shift+3 move container to workspace 13
-bindsym $mod+Mod1+Shift+4 move container to workspace 14
-bindsym $mod+Mod1+Shift+5 move container to workspace 15
-bindsym $mod+Mod1+Shift+6 move container to workspace 16
-bindsym $mod+Mod1+Shift+7 move container to workspace 17
-bindsym $mod+Mod1+Shift+8 move container to workspace 18
-bindsym $mod+Mod1+Shift+9 move container to workspace 19
-bindsym $mod+Mod1+Shift+0 move container to workspace 20
+bindsym $mod+Shift+F1 move container to workspace 201
+bindsym $mod+Shift+F2 move container to workspace 202
+bindsym $mod+Shift+F3 move container to workspace 203
+bindsym $mod+Shift+F4 move container to workspace 204
+bindsym $mod+Shift+F5 move container to workspace 205
+bindsym $mod+Shift+F6 move container to workspace 206
+bindsym $mod+Shift+F7 move container to workspace 207
+bindsym $mod+Shift+F8 move container to workspace 208
+bindsym $mod+Shift+F9 move container to workspace 209
+bindsym $mod+Shift+F10 move container to workspace 210
+bindsym $mod+Shift+F11 move container to workspace 211
+bindsym $mod+Shift+F12 move container to workspace 212
 
-bindsym $mod+Mod1+Shift+q move container to workspace 21
-bindsym $mod+Mod1+Shift+w move container to workspace 22
-bindsym $mod+Mod1+Shift+e move container to workspace 23
-bindsym $mod+Mod1+Shift+r move container to workspace 24
-bindsym $mod+Mod1+Shift+t move container to workspace 25
-bindsym $mod+Mod1+Shift+z move container to workspace 26
-bindsym $mod+Mod1+Shift+u move container to workspace 27
-bindsym $mod+Mod1+Shift+i move container to workspace 28
-bindsym $mod+Mod1+Shift+o move container to workspace 29
-bindsym $mod+Mod1+Shift+p move container to workspace 30 
+bindsym $mod+Mod1+Shift+1 move container to workspace 301
+bindsym $mod+Mod1+Shift+2 move container to workspace 302
+bindsym $mod+Mod1+Shift+3 move container to workspace 303
+bindsym $mod+Mod1+Shift+4 move container to workspace 304
+bindsym $mod+Mod1+Shift+5 move container to workspace 305
+bindsym $mod+Mod1+Shift+6 move container to workspace 306
+bindsym $mod+Mod1+Shift+7 move container to workspace 307
+bindsym $mod+Mod1+Shift+8 move container to workspace 308
+bindsym $mod+Mod1+Shift+9 move container to workspace 309
+bindsym $mod+Mod1+Shift+0 move container to workspace 310
+bindsym $mod+Mod1+Shift+ssharp move container to workspace 311 
+bindsym $mod+Mod1+Shift+acute move container to workspace  312 
 
-bindsym $mod+Shift+F1 move container to workspace 31
-bindsym $mod+Shift+F2 move container to workspace 32
-bindsym $mod+Shift+F3 move container to workspace 33
-bindsym $mod+Shift+F4 move container to workspace 34
-bindsym $mod+Shift+F5 move container to workspace 35
-bindsym $mod+Shift+F6 move container to workspace 36
-bindsym $mod+Shift+F7 move container to workspace 37
-bindsym $mod+Shift+F8 move container to workspace 38
-bindsym $mod+Shift+F9 move container to workspace 39
-bindsym $mod+Shift+F10 move container to workspace 40
-bindsym $mod+Shift+F11 move container to workspace 41
-bindsym $mod+Shift+F12 move container to workspace 42
+bindsym $mod+Mod1+Shift+q move container to workspace 401
+bindsym $mod+Mod1+Shift+w move container to workspace 402
+bindsym $mod+Mod1+Shift+e move container to workspace 403
+bindsym $mod+Mod1+Shift+r move container to workspace 404
+bindsym $mod+Mod1+Shift+t move container to workspace 405
+bindsym $mod+Mod1+Shift+z move container to workspace 406
+bindsym $mod+Mod1+Shift+u move container to workspace 407
+bindsym $mod+Mod1+Shift+i move container to workspace 408
+bindsym $mod+Mod1+Shift+o move container to workspace 409
+bindsym $mod+Mod1+Shift+p move container to workspace 410
+bindsym $mod+Mod1+Shift+udiaeresis move container to workspace 411
+bindsym $mod+Mod1+Shift+plus move container to workspace 412
+
 
 bindsym $mod+Tab workspace back_and_forth
 

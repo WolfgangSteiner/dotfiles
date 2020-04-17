@@ -21,7 +21,7 @@ client.focused          #333333 #ff0000 #aaaaaa #0088aa #666666
 client.focused_inactive #333333 #000000 #aaaaaa #000000 #333333
 
 # Dropdown shell
-for_window [title="DROPDOWN"] floating enable, border pixel 2, move scatchpad, resize set 956 120 
+for_window [title="DROPDOWN"] floating enable, border pixel 2, move scratchpad, resize set 960 120 
 for_window [title="DROPDOWN1"] move position 0 0
 for_window [title="DROPDOWN2"] move position 962 0
 

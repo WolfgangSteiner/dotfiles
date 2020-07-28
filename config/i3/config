@@ -45,7 +45,8 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+g exec gvim
+bindsym $mod+Shift+g exec gvim
+bindsym $mod+Shift+f exec firefox --new-window
 
 # start helpers:
 # exec --no-startup-id /usr/bin/redshift

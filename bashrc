@@ -124,7 +124,7 @@ export $(gnome-keyring-daemon -s)
 set -o vi
 
 
-export PATH=~/.gem/ruby/2.6.0/bin:$PATH
+export PATH=~/.gem/ruby/2.7.0/bin:$PATH
 
 source /usr/share/fzf/completion.bash
 

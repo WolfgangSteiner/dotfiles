@@ -56,7 +56,8 @@ exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/dropbox start
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/indicator-sound-switcher
-
+exec --no-startup-id ~/bin/battery_watch
+exec --no-startup-id /usr/bin/unclutter 
 # start common apps
 exec /usr/bin/google-chrome
 

@@ -23,6 +23,8 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'zah/nim.vim'
 Plugin 'vimwiki/vimwiki'
 Plugin 'junegunn/fzf.vim'
+Plugin 'wahidrahim/resize-font'
+
 call vundle#end()            " required
 
 "colorscheme base16-default-dark

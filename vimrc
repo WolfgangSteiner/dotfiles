@@ -47,6 +47,7 @@ autocmd FileType cpp setlocal sw=2 sts=2 cino=g0,j1,:0,+2s,
 set guifont=Inconsolata\ 12
 set go-=m
 set go-=r
+set go-=T
 set cm=blowfish2
 
 

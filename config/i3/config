@@ -62,7 +62,7 @@ exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/dropbox start
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/indicator-sound-switcher
-exec --no-startup-id ~/bin/battery_watch
+exec --no-startup-id ~/.dotfiles/bin/battery_watch
 exec --no-startup-id /usr/bin/unclutter 
 
 # kill focused window 
@@ -285,7 +285,7 @@ assign [class="web.whatsapp.com"] 32
 bar {
         verbose yes
         position top
-        status_command status 
+        status_command ~/.dotfiles/bin/status 
         font pango:monospace 14
         mode hide
         hidden_state hide

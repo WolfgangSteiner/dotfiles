@@ -5,6 +5,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id compton --vsync opengl-swc --backend glx --no-fading-openclose --no-fading-destroyed-argb 
 
 set $mod Mod4
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -13,7 +14,8 @@ font pango:monospace 8
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 10
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
+
 for_window [instance="copyq" class="copyq"] border pixel 0, floating enable
 for_window [instance="peek" ] floating enable
 
@@ -37,16 +39,20 @@ for_window [title="~/todo/*"] move position center
 exec --no-startup-id /usr/bin/gvim todo/main.txt
 bindsym $mod+t [title="~/todo/*"] scratchpad show; move position center
 
-
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# xmodmap
+exec --no-startup-id xmodmap ~/.dotfiles/xmodmap
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+
+# start vim
 bindsym $mod+Shift+g exec gvim
-bindsym $mod+Shift+f exec firefox --new-window
+
+# start a browser
+bindsym $mod+Shift+Return exec --no-startup-id ~/bin/chrome 
 
 # start helpers:
 # exec --no-startup-id /usr/bin/redshift
@@ -58,18 +64,15 @@ exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/indicator-sound-switcher
 exec --no-startup-id ~/bin/battery_watch
 exec --no-startup-id /usr/bin/unclutter 
-# start common apps
-exec /usr/bin/google-chrome
-
 
 # kill focused window 
 bindsym $mod+x kill
 
-
 # start rofi (a program launcher)
-bindsym $mod+space exec "rofi --max-history-size 100 -modi run,web:/home/wolfgang/.dotfiles/rofi/web.py,window,ssh -show run" 
+bindsym $mod+space exec "rofi --max-history-size 100 -modi run,web:~/.dotfiles/rofi/web.py,window,ssh -show run" 
 bindsym $mod+w exec "rofi -show window" 
 bindsym $mod+c exec "rofi -show calc -modi calc -no-show-match -no-sort -lines 5"
+bindsym $mod+shift+space exec --no-startup-id ilia
 
 # change focus
 bindsym $mod+h focus left
@@ -96,17 +99,21 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split orientation
-bindsym $mod+Mod1+h split h
-bindsym $mod+Mod1+v split v
+bindsym $mod+$alt+h split h
+bindsym $mod+$alt+v split v
 
-bindsym $mod+Mod1+j exec "switch_workspace previous"
-bindsym $mod+Mod1+k exec "switch_workspace next"
+bindsym $mod+$alt+j exec "switch_workspace previous"
+bindsym $mod+$alt+k exec "switch_workspace next"
 
-
+# Window resizing:
+bindsym $mod+Shift+$alt+j resize shrink height 10 px or 10 ppt
+bindsym $mod+Shift+$alt+k resize grow   height 10 px or 10 ppt
+bindsym $mod+Shift+$alt+h resize shrink width 10 px or 10 ppt
+bindsym $mod+Shift+$alt+l resize grow   width 10 px or 10 ppt
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-bindsym $mod+Mod1+f floating toggle
+bindsym $mod+$alt+f floating toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+Shift+s layout stacking
@@ -152,31 +159,31 @@ bindsym $mod+F10 workspace 210
 bindsym $mod+F11 workspace 211
 bindsym $mod+F12 workspace 212
 
-bindsym $mod+Mod1+1 workspace 301
-bindsym $mod+Mod1+2 workspace 302
-bindsym $mod+Mod1+3 workspace 303
-bindsym $mod+Mod1+4 workspace 304
-bindsym $mod+Mod1+5 workspace 305
-bindsym $mod+Mod1+6 workspace 306
-bindsym $mod+Mod1+7 workspace 307
-bindsym $mod+Mod1+8 workspace 308
-bindsym $mod+Mod1+9 workspace 309
-bindsym $mod+Mod1+0 workspace 310
-bindsym $mod+Mod1+ssharp workspace 311 
-bindsym $mod+Mod1+acute workspace  312 
+bindsym $mod+$alt+1 workspace 301
+bindsym $mod+$alt+2 workspace 302
+bindsym $mod+$alt+3 workspace 303
+bindsym $mod+$alt+4 workspace 304
+bindsym $mod+$alt+5 workspace 305
+bindsym $mod+$alt+6 workspace 306
+bindsym $mod+$alt+7 workspace 307
+bindsym $mod+$alt+8 workspace 308
+bindsym $mod+$alt+9 workspace 309
+bindsym $mod+$alt+0 workspace 310
+bindsym $mod+$alt+ssharp workspace 311 
+bindsym $mod+$alt+acute workspace  312 
 
-bindsym $mod+Mod1+q workspace 401
-bindsym $mod+Mod1+w workspace 402
-bindsym $mod+Mod1+e workspace 403
-bindsym $mod+Mod1+r workspace 404
-bindsym $mod+Mod1+t workspace 405
-bindsym $mod+Mod1+z workspace 406
-bindsym $mod+Mod1+u workspace 407
-bindsym $mod+Mod1+i workspace 408
-bindsym $mod+Mod1+o workspace 409
-bindsym $mod+Mod1+p workspace 410
-bindsym $mod+Mod1+udiaeresis workspace 411
-bindsym $mod+Mod1+plus workspace 412
+bindsym $mod+$alt+q workspace 401
+bindsym $mod+$alt+w workspace 402
+bindsym $mod+$alt+e workspace 403
+bindsym $mod+$alt+r workspace 404
+bindsym $mod+$alt+t workspace 405
+bindsym $mod+$alt+z workspace 406
+bindsym $mod+$alt+u workspace 407
+bindsym $mod+$alt+i workspace 408
+bindsym $mod+$alt+o workspace 409
+bindsym $mod+$alt+p workspace 410
+bindsym $mod+$alt+udiaeresis workspace 411
+bindsym $mod+$alt+plus workspace 412
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 101
@@ -205,31 +212,31 @@ bindsym $mod+Shift+F10 move container to workspace 210
 bindsym $mod+Shift+F11 move container to workspace 211
 bindsym $mod+Shift+F12 move container to workspace 212
 
-bindsym $mod+Mod1+Shift+1 move container to workspace 301
-bindsym $mod+Mod1+Shift+2 move container to workspace 302
-bindsym $mod+Mod1+Shift+3 move container to workspace 303
-bindsym $mod+Mod1+Shift+4 move container to workspace 304
-bindsym $mod+Mod1+Shift+5 move container to workspace 305
-bindsym $mod+Mod1+Shift+6 move container to workspace 306
-bindsym $mod+Mod1+Shift+7 move container to workspace 307
-bindsym $mod+Mod1+Shift+8 move container to workspace 308
-bindsym $mod+Mod1+Shift+9 move container to workspace 309
-bindsym $mod+Mod1+Shift+0 move container to workspace 310
-bindsym $mod+Mod1+Shift+ssharp move container to workspace 311 
-bindsym $mod+Mod1+Shift+acute move container to workspace  312 
+bindsym $mod+$alt+Shift+1 move container to workspace 301
+bindsym $mod+$alt+Shift+2 move container to workspace 302
+bindsym $mod+$alt+Shift+3 move container to workspace 303
+bindsym $mod+$alt+Shift+4 move container to workspace 304
+bindsym $mod+$alt+Shift+5 move container to workspace 305
+bindsym $mod+$alt+Shift+6 move container to workspace 306
+bindsym $mod+$alt+Shift+7 move container to workspace 307
+bindsym $mod+$alt+Shift+8 move container to workspace 308
+bindsym $mod+$alt+Shift+9 move container to workspace 309
+bindsym $mod+$alt+Shift+0 move container to workspace 310
+bindsym $mod+$alt+Shift+ssharp move container to workspace 311 
+bindsym $mod+$alt+Shift+acute move container to workspace  312 
 
-bindsym $mod+Mod1+Shift+q move container to workspace 401
-bindsym $mod+Mod1+Shift+w move container to workspace 402
-bindsym $mod+Mod1+Shift+e move container to workspace 403
-bindsym $mod+Mod1+Shift+r move container to workspace 404
-bindsym $mod+Mod1+Shift+t move container to workspace 405
-bindsym $mod+Mod1+Shift+z move container to workspace 406
-bindsym $mod+Mod1+Shift+u move container to workspace 407
-bindsym $mod+Mod1+Shift+i move container to workspace 408
-bindsym $mod+Mod1+Shift+o move container to workspace 409
-bindsym $mod+Mod1+Shift+p move container to workspace 410
-bindsym $mod+Mod1+Shift+udiaeresis move container to workspace 411
-bindsym $mod+Mod1+Shift+plus move container to workspace 412
+bindsym $mod+$alt+Shift+q move container to workspace 401
+bindsym $mod+$alt+Shift+w move container to workspace 402
+bindsym $mod+$alt+Shift+e move container to workspace 403
+bindsym $mod+$alt+Shift+r move container to workspace 404
+bindsym $mod+$alt+Shift+t move container to workspace 405
+bindsym $mod+$alt+Shift+z move container to workspace 406
+bindsym $mod+$alt+Shift+u move container to workspace 407
+bindsym $mod+$alt+Shift+i move container to workspace 408
+bindsym $mod+$alt+Shift+o move container to workspace 409
+bindsym $mod+$alt+Shift+p move container to workspace 410
+bindsym $mod+$alt+Shift+udiaeresis move container to workspace 411
+bindsym $mod+$alt+Shift+plus move container to workspace 412
 
 
 bindsym $mod+Tab workspace back_and_forth
@@ -252,18 +259,13 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-#bindsym $mod+Mod1+l exec "~/.dotfiles/scripts/i3lock-extra.bash -s -g -p"
+#bindsym $mod+$alt+l exec "~/.dotfiles/scripts/i3lock-extra.bash -s -g -p"
 
 bindsym $mod+Q exec "i3menu"
 
 
-# Window resizing:
-bindsym $mod+Shift+Mod1+j resize shrink height 10 px or 10 ppt
-bindsym $mod+Shift+Mod1+k resize grow   height 10 px or 10 ppt
-bindsym $mod+Shift+Mod1+h resize shrink width 10 px or 10 ppt
-bindsym $mod+Shift+Mod1+l resize grow   width 10 px or 10 ppt
 
-bindsym Mod1+Shift+v exec --no-startup-id /usr/bin/copyq toggle
+bindsym $alt+Shift+v exec --no-startup-id /usr/bin/copyq toggle
 
 
 # Screenshots
@@ -284,7 +286,7 @@ bar {
         verbose yes
         position top
         status_command status 
-        font pango:monospace 10
+        font pango:monospace 14
         mode hide
         hidden_state hide
         modifier $mod

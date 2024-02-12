@@ -1,0 +1,5 @@
+#======
+# NVIM
+#======
+
+o add fugitive.vim

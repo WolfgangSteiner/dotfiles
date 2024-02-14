@@ -2,7 +2,7 @@
 exec --no-startup-id nm-applet
 
 # Fix screen tearing
-exec --no-startup-id compton --vsync opengl-swc --backend glx --no-fading-openclose --no-fading-destroyed-argb 
+exec_always --no-startup-id picom --backend glx --vsync --no-fading-openclose -o 0 -I 1 -O 1
 
 set $mod Mod4
 set $alt Mod1
@@ -46,30 +46,31 @@ floating_modifier $mod
 exec --no-startup-id xmodmap ~/.dotfiles/xmodmap
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id bash ~/.dotfiles/scripts/terminal.sh
 
 # start vim
 bindsym $mod+Shift+g exec gvim
 
 # start a browser
-bindsym $mod+Shift+Return exec --no-startup-id ~/bin/chrome 
+bindsym $mod+Shift+Return exec --no-startup-id ~/bin/chrome
+bindsym $mod+b exec --no-startup-id .dotfiles/bin/battery_watch
 
 # start helpers:
 # exec --no-startup-id /usr/bin/redshift
 exec --no-startup-id /lib/mate-settings-daemon/mate-settings-daemon
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/dropbox start
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/indicator-sound-switcher
-exec --no-startup-id ~/.dotfiles/bin/battery_watch
+exec_always --no-startup-id ~/.dotfiles/scripts/check_start_process.sh ~/.dotfiles/bin/battery_watch
 exec --no-startup-id /usr/bin/unclutter 
 
 # kill focused window 
 bindsym $mod+x kill
 
 # start rofi (a program launcher)
-bindsym $mod+space exec "rofi --max-history-size 100 -modi run,web:~/.dotfiles/rofi/web.py,window,ssh -show run" 
+bindsym $mod+space exec "rofi --max-history-size 100 -modi run,drun,web:~/.dotfiles/rofi/web.py,window,ssh -show run" 
 bindsym $mod+w exec "rofi -show window" 
 bindsym $mod+c exec "rofi -show calc -modi calc -no-show-match -no-sort -lines 5"
 bindsym $mod+shift+space exec --no-startup-id ilia
@@ -238,13 +239,11 @@ bindsym $mod+$alt+Shift+p move container to workspace 410
 bindsym $mod+$alt+Shift+udiaeresis move container to workspace 411
 bindsym $mod+$alt+Shift+plus move container to workspace 412
 
-
 bindsym $mod+Tab workspace back_and_forth
 
-
 # Screen brightness
-bindsym XF86MonBrightnessUp exec ~/bin/dim inc
-bindsym XF86MonBrightnessDown exec ~/bin/dim dec 
+bindsym XF86MonBrightnessUp exec ~/.dotfiles/bin/dim inc
+bindsym XF86MonBrightnessDown exec ~/.dotfiles/bin/dim dec 
 
 # Media Keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +3db #increase sound volume
@@ -262,11 +261,7 @@ bindsym $mod+Shift+r restart
 #bindsym $mod+$alt+l exec "~/.dotfiles/scripts/i3lock-extra.bash -s -g -p"
 
 bindsym $mod+Q exec "i3menu"
-
-
-
 bindsym $alt+Shift+v exec --no-startup-id /usr/bin/copyq toggle
-
 
 # Screenshots
 bindsym --release Print exec /usr/bin/gnome-screenshot -w -f ~/Dropbox/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
@@ -279,19 +274,18 @@ assign [class="Slack"] 39
 assign [class="inbox.google.com"] 31
 assign [class="web.whatsapp.com"] 32
 
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        verbose yes
-        position top
-        status_command ~/.dotfiles/bin/status 
-        font pango:monospace 14
-        mode hide
-        hidden_state hide
-        modifier $mod
-      #  tray_output primary
-      colors {
+    verbose yes
+    position top
+    status_command ~/.dotfiles/bin/status 
+    font pango:monospace 14
+    mode hide
+    hidden_state hide
+    modifier $mod
+    #tray_output primary
+    colors {
         background #222222
-      }
+    }
 }

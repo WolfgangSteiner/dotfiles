@@ -1,0 +1,36 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt inc_append_history
+setopt share_history
+
+setopt autocd extendedglob notify 
+unsetopt beep nomatch
+bindkey -v
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/wst/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# Define a key binding to initiate fuzzy search on command history
+bindkey '^r' fzf-history-widget
+
+history_filter_function() {
+    grep -v -e '^ls' -e'^man' -e'^which'   
+}
+
+# Define the fuzzy search widget using fzf
+fzf-history-widget() {
+  local selected_command
+  selected_command=$(history 1 | awk '{$1=""}sub(FS,"")' | history_filter_function | fzf --tac +s --no-sort +m)  # --tac: reverse order, +s: fuzzy search, +m: no multi-select
+  LBUFFER=$selected_command
+}
+zle -N fzf-history-widget
+
+

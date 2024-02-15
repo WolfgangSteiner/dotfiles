@@ -264,8 +264,8 @@ bindsym $mod+Q exec "i3menu"
 bindsym $alt+Shift+v exec --no-startup-id /usr/bin/copyq toggle
 
 # Screenshots
-bindsym --release Print exec /usr/bin/gnome-screenshot -w -f ~/Dropbox/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
-bindsym --release Shift+Print exec /usr/bin/gnome-screenshot -a -f ~/Dropbox/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
+bindsym --release Print exec /usr/bin/scrot --select ~/img/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
+bindsym --release Shift+Print exec /usr/bin/scrot --focused ~/img/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
 
 # Default workspaces
 assign [class="ProtoStudio"] 3

@@ -1,5 +1,7 @@
 rofi.theme: gruvbox-dark
 
+Xcursor.theme: Qogir-dark
+Xcursor.size: 16
 
 URxvt.font: xft:Inconsolata:style=Regular:size=11
 URxvt.letterSpace: 0
@@ -9,6 +11,9 @@ URxvt.internalBorder: 1
 
 *background: #111111
 *foreground: #eeeeee
+
+Sxiv.background: #222222
+Sxiv.font: monospace-16
 
 *color0:  #2E3436
 *color1:  #a40000

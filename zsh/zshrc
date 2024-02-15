@@ -33,4 +33,6 @@ fzf-history-widget() {
 }
 zle -N fzf-history-widget
 
+export PS1="%~ %(!.#.%% )"
+
 

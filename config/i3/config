@@ -239,7 +239,9 @@ bindsym $mod+$alt+Shift+p move container to workspace 410
 bindsym $mod+$alt+Shift+udiaeresis move container to workspace 411
 bindsym $mod+$alt+Shift+plus move container to workspace 412
 
-bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+$alt+Tab workspace back_and_forth
+bindsym $mod+Tab fullscreen disable, focus right, fullscreen enable 
+bindsym $mod+Shift+Tab fullscreen disable, focus left, fullscreen enable 
 
 # Screen brightness
 bindsym XF86MonBrightnessUp exec ~/.dotfiles/bin/dim inc

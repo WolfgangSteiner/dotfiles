@@ -31,6 +31,15 @@ fzf-history-widget() {
   selected_command=$(history 1 | awk '{$1=""}sub(FS,"")' | history_filter_function | fzf --tac +s --no-sort +m)  # --tac: reverse order, +s: fuzzy search, +m: no multi-select
   LBUFFER=$selected_command
 }
+
+cdf() {
+  if [[ $# -eq 0 ]] then
+    cd $(fd -td . ~ | fzf)
+  else
+    cd $(fd -td $@ ~ | fzf)
+  fi
+}
+
 zle -N fzf-history-widget
 
 export PS1="%~ %(!.#.%% )"

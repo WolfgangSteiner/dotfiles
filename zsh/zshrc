@@ -35,4 +35,6 @@ zle -N fzf-history-widget
 
 export PS1="%~ %(!.#.%% )"
 
+eval "$(zoxide init zsh)"
+
 

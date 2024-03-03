@@ -40,6 +40,11 @@ cdf() {
   fi
 }
 
+alias ll='ls -l'
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+
 zle -N fzf-history-widget
 
 export PS1="%~ %(!.#.%% )"

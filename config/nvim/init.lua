@@ -84,6 +84,8 @@ require('lazy').setup({
   'junegunn/fzf',
   'junegunn/fzf.vim',
   'Numkil/ag.nvim',
+  'ggandor/leap.nvim',
+
   --{
     --'Exafunction/codeium.vim',
     --event = 'BufEnter',
@@ -380,6 +382,7 @@ require('telescope').setup {
   },
 }
 
+require('leap').create_default_mappings()
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')

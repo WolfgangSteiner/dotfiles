@@ -1,2 +1,2 @@
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.dotfiles/scripts:$PATH"
 export BROWSER=google-chrome-stable

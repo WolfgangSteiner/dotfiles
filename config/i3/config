@@ -67,6 +67,7 @@ exec --no-startup-id /usr/bin/indicator-sound-switcher
 exec_always --no-startup-id ~/.dotfiles/scripts/check_start_process.sh ~/.dotfiles/bin/battery_watch
 exec_always --no-startup-id ~/.dotfiles/scripts/check_start_process.sh ~/.dotfiles/bin/sleep_watch
 exec --no-startup-id /usr/bin/unclutter 
+exec --no-startup-id /usr/bin/mpris-proxy
 
 # kill focused window 
 bindsym $mod+x kill

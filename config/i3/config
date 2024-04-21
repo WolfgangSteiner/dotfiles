@@ -64,6 +64,7 @@ exec --no-startup-id /usr/bin/dropbox start
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/indicator-sound-switcher
 exec_always --no-startup-id ~/.dotfiles/scripts/check_start_process.sh ~/.dotfiles/bin/battery_watch
+exec_always --no-startup-id ~/.dotfiles/scripts/check_start_process.sh ~/.dotfiles/bin/sleep_watch
 exec --no-startup-id /usr/bin/unclutter 
 
 # kill focused window 

@@ -48,6 +48,50 @@ fzplay() {
     fi
 }
 
+to_snake_case() {
+    local input="$1"
+    local snake_case=$(echo "$input" | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
+    echo -n "$snake_case"
+}
+
+rip_cd() {
+    if [[ $# -lt 2 || $# -gt 3 ]]; then
+        echo "Usage: rip_cd <artist> <album> [year]"
+        return 1
+    fi
+
+    local artist="$1"
+    local album="$2"
+    local year="$3"
+    local artist_snake=$(to_snake_case $artist);
+    local album_snake=$(to_snake_case $album)
+    local output_dir="$HOME/music/$artist_snake"
+    
+    # If year is provided, adjust the output file name
+    if [[ -n $year ]]; then
+        local output_file="$output_dir/$year-$album_snake.mp3"
+    else
+        local output_file="$output_dir/$album_snake.mp3"
+    fi
+
+    # Create output directory if it doesn't exist
+    mkdir -p "$output_dir"
+
+    # Rip all tracks to a single WAV file
+    cdparanoia 1-
+
+    # Encode the WAV file to MP3 using lame with standard preset
+    lame --preset standard cdda.wav "$output_file"
+
+    # Set ID3v2 tags
+    id3v2 --artist "$artist" --album "$album" --song "$album" --year "$year" "$output_file"
+
+    # Clean up temporary WAV files
+    #rm -f track*.wav
+
+    echo "CD ripped and encoded to: $output_file"
+}
+
 alias ll='ls -l'
 alias cd..='cd ..'
 alias ..='cd ..'

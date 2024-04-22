@@ -709,8 +709,39 @@ cmp.setup {
   },
 }
 
+
+function run_build()
+    local build_command = "bash -c './bld'"
+    local term_buf = vim.api.nvim_create_buf(false, true)
+    local term_win = vim.api.nvim_open_win(term_buf, true, {
+        relative = 'editor',
+        width = math.floor(vim.o.columns * 0.9), -- 80% of the columns
+        height = math.floor(vim.o.lines * 0.9),  -- 80% of the lines
+        row = math.floor(vim.o.lines * 0.0),     -- 10% from the top
+        col = math.floor(vim.o.columns * 0.05),   -- 10% from the left
+        style = 'minimal',
+        border = 'single',
+    })
+    vim.fn.termopen("./bld", {
+        --on_exit = function(job_id, exit_code, event_type)
+            -- Close the terminal window on exit
+        --    vim.api.nvim_win_close(term_win, true)
+        --end,
+        exit_cb = function(_, _, _)
+            -- Close the terminal window when Esc is pressed
+            vim.api.nvim_win_close(term_win, true)
+        end
+    })
+    vim.api.nvim_buf_set_keymap(term_buf, 'n', '<Esc>', [[:q<CR>]], { noremap = true, silent = true })
+end
+
+-- Map F1 to execute the build script function
+vim.api.nvim_set_keymap('n', '<F1>', [[:lua run_build()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<F2>', [[:cexpr system("./bld")<CR>]], { noremap = true, silent = true })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
+-- vim.o.errorformat = vim.o.errorformat .. ",%-G[TEST]%m,%-G[INFO]%m,%-G%[^.]....%m"
 
 -- configure floaterm panes
 vim.api.nvim_set_var('floaterm_borderchars', "        ")

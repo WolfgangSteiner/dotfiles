@@ -45,7 +45,7 @@ fzplay() {
     local query="$1"
     mp3_file=$(fd . --extension mp3 ~/music | grep -i "$query" | sort -r | fzf --select-1)
     if [[ -n "$mp3_file" ]]; then
-        mplayer "$mp3_file"
+        mpv "$mp3_file"
     fi
 }
 

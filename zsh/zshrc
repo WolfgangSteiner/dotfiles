@@ -49,6 +49,7 @@ fzplay() {
     fi
 }
 
+alias ff=fzplay
 to_snake_case() {
     local input="$1"
     local snake_case=$(echo "$input" | tr '[:upper:]' '[:lower:]' | tr ' ' '_')

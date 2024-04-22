@@ -56,42 +56,51 @@ to_snake_case() {
     echo -n "$snake_case"
 }
 
-rip_cd() {
-    if [[ $# -lt 2 || $# -gt 3 ]]; then
-        echo "Usage: rip_cd <artist> <album> [year]"
+wav_to_mp3() {
+    if [[ $# -lt 3 || $# -gt 4 ]]; then
+        echo "Usage: convert_wav <wav-file> <artist> <album> [year]"
         return 1
     fi
 
-    local artist="$1"
-    local album="$2"
-    local year="$3"
+    local wav_file="$1"
+    local artist="$2"
+    local album="$3"
+    local year="$4"
     local artist_snake=$(to_snake_case $artist);
     local album_snake=$(to_snake_case $album)
     local output_dir="$HOME/music/$artist_snake"
     
-    # If year is provided, adjust the output file name
     if [[ -n $year ]]; then
         local output_file="$output_dir/$year-$album_snake.mp3"
     else
         local output_file="$output_dir/$album_snake.mp3"
     fi
 
-    # Create output directory if it doesn't exist
     mkdir -p "$output_dir"
-
-    # Rip all tracks to a single WAV file
-    cdparanoia 1-
-
-    # Encode the WAV file to MP3 using lame with standard preset
-    lame --preset standard cdda.wav "$output_file"
-
-    # Set ID3v2 tags
+    lame --preset standard $wav_file "$output_file"
     id3v2 --artist "$artist" --album "$album" --song "$album" --year "$year" "$output_file"
+    echo "encoded to: $output_file"
+}
 
-    # Clean up temporary WAV files
-    #rm -f track*.wav
+cd_to_mp3() {
+    if [[ $# -lt 2 || $# -gt 3 ]]; then
+        echo "Usage: rip_cd <artist> <album> [year]"
+        return 1
+    fi
+    cdparanoia 1-
+    wav_to_mp3 cdda.wav $1 $2 $3
+}
 
-    echo "CD ripped and encoded to: $output_file"
+wav_to_flac() {
+    for file in "$@"; do
+        if [ ! -f "$file" ]; then
+            echo "File not found: $file"
+            continue
+        fi
+        
+        output="${file:r}.flac"
+        ffmpeg -i "$file" -compression_level 12 "$output"
+    done
 }
 
 alias ll='ls -l'

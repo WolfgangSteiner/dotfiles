@@ -342,6 +342,8 @@ vim.o.termguicolors = true
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
+-- unset F1 key
+vim.api.nvim_set_keymap('', '<F1>', '<Nop>', { noremap = true, silent = true })
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 

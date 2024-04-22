@@ -86,6 +86,7 @@ require('lazy').setup({
   'Numkil/ag.nvim',
   'ggandor/leap.nvim',
 
+  'voldikss/vim-floaterm',
   --{
     --'Exafunction/codeium.vim',
     --event = 'BufEnter',
@@ -702,3 +703,8 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- configure floaterm panes
+vim.api.nvim_set_var('floaterm_borderchars', "        ")
+vim.api.nvim_set_var('floaterm_width', 0.95)
+vim.api.nvim_set_var('floaterm_height', 0.95)

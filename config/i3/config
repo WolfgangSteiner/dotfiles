@@ -249,8 +249,9 @@ bindsym $mod+Tab fullscreen disable, focus right, fullscreen enable
 bindsym $mod+Shift+Tab fullscreen disable, focus left, fullscreen enable 
 
 # Screen brightness
-bindsym XF86MonBrightnessUp exec ~/.dotfiles/bin/dim inc
-bindsym XF86MonBrightnessDown exec ~/.dotfiles/bin/dim dec 
+set $dim_exe ~/.dotfiles/bin/dim
+bindsym XF86MonBrightnessUp exec $dim_exe inc
+bindsym XF86MonBrightnessDown exec $dim_exe dec 
 
 # Media Keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +3db #increase sound volume

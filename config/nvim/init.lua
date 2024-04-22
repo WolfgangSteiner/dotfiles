@@ -748,6 +748,12 @@ vim.api.nvim_set_var('floaterm_borderchars', "        ")
 vim.api.nvim_set_var('floaterm_width', 0.95)
 vim.api.nvim_set_var('floaterm_height', 0.95)
 
+vim.cmd("FloatermNew --silent --name=lazygit --position=center --autoclose=2 lazygit")
+function show_lazygit()
+    vim.cmd("FloatermToggle lazygit")
+end
+vim.api.nvim_set_keymap('n', '<F12>', '<Cmd>lua show_lazygit()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<F12>', '<Cmd>lua show_lazygit()<CR>', { noremap = true, silent = true })
 -- Map <F11> to toggle terminal
 vim.cmd("FloatermNew --silent --name=zsh --position=center --autoclose=2 zsh")
 function show_zsh()
@@ -755,3 +761,12 @@ function show_zsh()
 end
 vim.api.nvim_set_keymap('n', '<F11>', '<Cmd>lua show_zsh()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<F11>', '<Cmd>lua show_zsh()<CR>', { noremap = true, silent = true })
+
+-- Map <F12> to toggle lazygit
+vim.cmd("FloatermNew --silent --name=lazygit --position=center --autoclose=2 lazygit")
+function show_lazygit()
+    vim.cmd("FloatermToggle lazygit")
+end
+vim.api.nvim_set_keymap('n', '<F12>', '<Cmd>lua show_lazygit()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<F12>', '<Cmd>lua show_lazygit()<CR>', { noremap = true, silent = true })
+

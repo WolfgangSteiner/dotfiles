@@ -714,3 +714,11 @@ cmp.setup {
 vim.api.nvim_set_var('floaterm_borderchars', "        ")
 vim.api.nvim_set_var('floaterm_width', 0.95)
 vim.api.nvim_set_var('floaterm_height', 0.95)
+
+-- Map <F11> to toggle terminal
+vim.cmd("FloatermNew --silent --name=zsh --position=center --autoclose=2 zsh")
+function show_zsh()
+    vim.cmd("FloatermToggle zsh")
+end
+vim.api.nvim_set_keymap('n', '<F11>', '<Cmd>lua show_zsh()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<F11>', '<Cmd>lua show_zsh()<CR>', { noremap = true, silent = true })

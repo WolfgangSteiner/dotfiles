@@ -75,9 +75,6 @@ require('lazy').setup({
 
   'tpope/vim-dispatch',
 
-  -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
-
   'pocco81/auto-save.nvim',
 
   'preservim/nerdcommenter',
@@ -299,6 +296,11 @@ require('lazy').setup({
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
+
+-- indentation
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.expandtab = true
 
 -- Set highlight on search
 vim.o.hlsearch = false

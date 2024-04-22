@@ -1,5 +1,1 @@
-#======
-# NVIM
-#======
-
-o add fugitive.vim
+- introduce stow

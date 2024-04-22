@@ -53,7 +53,8 @@ bindsym $mod+Return exec --no-startup-id bash ~/.dotfiles/scripts/terminal.sh
 bindsym $mod+Shift+g exec gvim
 
 # start a browser
-bindsym $mod+Shift+Return exec --no-startup-id ~/bin/chrome
+bindsym $mod+Shift+Return exec --no-startup-id firefox --new-window
+
 bindsym $mod+b exec --no-startup-id .dotfiles/bin/battery_watch
 
 # start helpers:

@@ -162,6 +162,8 @@ bindsym $mod+F9 workspace 209
 bindsym $mod+F10 workspace 210
 bindsym $mod+F11 workspace 211
 bindsym $mod+F12 workspace 212
+bindsym $mod+Insert workspace 213
+bindsym $mod+Delete workspace 214
 
 bindsym $mod+$alt+1 workspace 301
 bindsym $mod+$alt+2 workspace 302

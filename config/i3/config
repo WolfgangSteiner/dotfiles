@@ -4,6 +4,8 @@ exec --no-startup-id nm-applet
 # Fix screen tearing
 exec_always --no-startup-id picom --backend glx --vsync --no-fading-openclose -o 0 -I 1 -O 1
 
+exec --no-startup-id dunst
+
 set $mod Mod4
 set $alt Mod1
 
@@ -55,8 +57,6 @@ bindsym $mod+Shift+g exec gvim
 # start a browser
 bindsym $mod+Shift+Return exec --no-startup-id firefox --new-window
 
-bindsym $mod+b exec --no-startup-id .dotfiles/bin/battery_watch
-
 # start helpers:
 # exec --no-startup-id /usr/bin/redshift
 exec --no-startup-id /lib/mate-settings-daemon/mate-settings-daemon
@@ -65,8 +65,8 @@ exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/dropbox start
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/indicator-sound-switcher
-exec_always --no-startup-id ~/.dotfiles/scripts/check_start_process.sh ~/.dotfiles/bin/battery_watch
-exec_always --no-startup-id ~/.dotfiles/scripts/check_start_process.sh ~/.dotfiles/bin/sleep_watch
+exec_always --no-startup-id ~/.dotfiles/scripts/check_start_process.sh ~/bin/battery_watch
+exec_always --no-startup-id ~/.dotfiles/scripts/check_start_process.sh ~/bin/sleep_watch
 exec --no-startup-id /usr/bin/unclutter 
 exec --no-startup-id /usr/bin/mpris-proxy
 
@@ -116,6 +116,10 @@ bindsym $mod+Shift+$alt+k resize grow   height 20 px
 bindsym $mod+Shift+$alt+h resize shrink width 20 px
 bindsym $mod+Shift+$alt+l resize grow   width 20 px
 
+bindsym $mod+Shift+$alt+n resize set width 33 ppt
+bindsym $mod+Shift+$alt+m resize set width 66 ppt
+bindsym $mod+Shift+$alt+comma resize set width 50 ppt
+
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 bindsym $mod+$alt+f floating toggle
@@ -164,8 +168,9 @@ bindsym $mod+F9 workspace 209
 bindsym $mod+F10 workspace 210
 bindsym $mod+F11 workspace 211
 bindsym $mod+F12 workspace 212
-bindsym $mod+Insert workspace 213
-bindsym $mod+Delete workspace 214
+bindsym $mod+Print workspace 213
+bindsym $mod+Insert workspace 214
+bindsym $mod+Delete workspace 215
 
 bindsym $mod+$alt+1 workspace 301
 bindsym $mod+$alt+2 workspace 302
@@ -219,6 +224,9 @@ bindsym $mod+Shift+F9 move container to workspace 209
 bindsym $mod+Shift+F10 move container to workspace 210
 bindsym $mod+Shift+F11 move container to workspace 211
 bindsym $mod+Shift+F12 move container to workspace 212
+bindsym $mod+Shift+Print move container to workspace 213
+bindsym $mod+Shift+Insert move container to workspace 214
+bindsym $mod+Shift+Delete move container to workspace 215
 
 bindsym $mod+$alt+Shift+1 move container to workspace 301
 bindsym $mod+$alt+Shift+2 move container to workspace 302
@@ -251,7 +259,7 @@ bindsym $mod+Tab fullscreen disable, focus right, fullscreen enable
 bindsym $mod+Shift+Tab fullscreen disable, focus left, fullscreen enable 
 
 # Screen brightness
-set $dim_exe ~/.dotfiles/bin/dim
+set $dim_exe ~/bin/dim
 bindsym XF86MonBrightnessUp exec $dim_exe inc
 bindsym XF86MonBrightnessDown exec $dim_exe dec 
 
@@ -274,8 +282,8 @@ bindsym $mod+Q exec "i3menu"
 bindsym $alt+Shift+v exec --no-startup-id /usr/bin/copyq toggle
 
 # Screenshots
-bindsym --release Print exec /usr/bin/scrot --select ~/img/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
-bindsym --release Shift+Print exec /usr/bin/scrot --focused ~/img/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
+bindsym --release Print exec scrot --select ~/img/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
+bindsym --release Shift+Print exec scrot --focused ~/img/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
 
 # Default workspaces
 assign [class="ProtoStudio"] 3
@@ -291,7 +299,7 @@ bar {
     position top
     status_command ~/.dotfiles/bin/status 
     #font pango:monospace 14
-    font pango:Cozette HiDPI 16
+    font pango:Cozette HiDPI 15
     mode hide
     hidden_state hide
     modifier $mod

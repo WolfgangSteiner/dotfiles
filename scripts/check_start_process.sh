@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Check if the process is already running
 if pgrep $(basename $1); then

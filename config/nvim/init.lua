@@ -391,6 +391,11 @@ require('telescope').setup {
   },
 }
 
+require('cmp').setup {
+  autocomplete = false,
+  -- other settings
+}
+
 require('leap').create_default_mappings()
 
 -- Enable telescope fzf native, if installed
@@ -665,50 +670,15 @@ require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
 cmp.setup {
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
   completion = {
-    completeopt = 'menu,menuone,noinsert',
+    autocomplete = false,
   },
-  mapping = cmp.mapping.preset.insert {
-    ['<C-n>'] = cmp.mapping.select_next_item(),
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete {},
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.locally_jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-  },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = 'path' },
-  },
+  mapping = {
+    ['<C-Space>'] = cmp.mapping.complete()
+  }
 }
 
+vim.g.bld_cmd = 'echo "Hello World!"'
 
 function run_build()
     local build_command = "bash -c './bld'"
@@ -722,14 +692,20 @@ function run_build()
         style = 'minimal',
         border = 'single',
     })
-    vim.fn.termopen("./bld", {
+    vim.fn.termopen(vim.g.bld_cmd, {
         --on_exit = function(job_id, exit_code, event_type)
             -- Close the terminal window on exit
         --    vim.api.nvim_win_close(term_win, true)
         --end,
-        exit_cb = function(_, _, _)
+        on_exit = function(_, exit_code, _)
+            if exit_code == 0 then
             -- Close the terminal window when Esc is pressed
-            vim.api.nvim_win_close(term_win, true)
+                vim.defer_fn(
+                    function() 
+                        vim.api.nvim_win_close(term_win, true)
+                    end,
+                    1000)
+            end
         end
     })
     vim.api.nvim_buf_set_keymap(term_buf, 'n', '<Esc>', [[:q<CR>]], { noremap = true, silent = true })

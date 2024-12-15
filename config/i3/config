@@ -297,7 +297,7 @@ assign [class="web.whatsapp.com"] 32
 bar {
     verbose yes
     position top
-    status_command ~/.dotfiles/bin/status 
+    status_command ~/bin/status 
     #font pango:monospace 14
     font pango:Cozette HiDPI 15
     mode hide

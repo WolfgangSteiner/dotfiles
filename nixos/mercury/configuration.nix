@@ -130,6 +130,8 @@
     cups-brother-hll2375dw
   ];
   
+  services.udisks2.enable = true;
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
@@ -243,6 +245,7 @@
     zip unzip
     zoxide
     krita
+    udiskie
   ];
 
 

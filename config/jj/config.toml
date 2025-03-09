@@ -1,0 +1,9 @@
+[user]
+name = "Wolfgang Steiner"
+email = "wolfgang.steiner@gmail.com"
+
+[ui]
+#pager = "less -FRX"
+pager = "bat --style plain"
+#pager = "cat"
+default-command = "log"

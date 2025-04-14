@@ -7,3 +7,36 @@ email = "wolfgang.steiner@gmail.com"
 pager = "bat --style plain"
 #pager = "cat"
 default-command = "log"
+
+[templates]
+log = '''
+if(root,
+    format_root_commit(self),
+    label(
+        if(current_working_copy, "working_copy"),
+        separate(" ",
+            format_short_change_id_with_hidden_and_divergent_info(self),
+            separate(" ",
+                if(empty, label("empty", "(empty)")),
+                if(description,
+                    description.first_line(),
+                    label(if(empty, "empty"), description_placeholder),
+                )
+            ),
+            self.bookmarks(),
+            self.tags(),
+            self.working_copies(),
+            if(self.git_head(),
+                label("git_head", "git_head()")
+            ),
+            if(self.conflict(),
+                label("conflict", "conflict")
+            ),
+            if(config("ui.show-cryptographic-signatures").as_boolean(),
+                format_short_cryptographic_signature(self.signature())
+            )
+        )
+    )
+)
+'''
+

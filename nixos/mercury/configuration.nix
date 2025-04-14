@@ -221,9 +221,10 @@
     parallel
     poppler poppler_utils
     pciutils
-    procps
     picom
+    procps
     prismlauncher # minecraft
+    pulseaudio
     (pkgs.python3.withPackages (ps: with ps; [
       numpy
       typer
@@ -248,6 +249,8 @@
     udiskie
   ];
 
+  fonts.fontDir.enable = true;
+  fonts.fontconfig.enable = true;
 
   fonts.packages = with pkgs; [
     cozette

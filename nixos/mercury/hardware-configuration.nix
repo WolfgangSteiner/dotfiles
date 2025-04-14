@@ -13,46 +13,40 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/cdd62401-a3a4-418d-89f3-33902c62c2dc";
-      fsType = "btrfs";
-      options = [ "subvol=root" "compress=zstd" "noatime"];
-    };
-
-  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/28aa6bc4-8ca6-44c5-99b3-d7d8016b173e";
-
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/cdd62401-a3a4-418d-89f3-33902c62c2dc";
-      fsType = "btrfs";
-      options = [ "subvol=home" "compress=zstd" "noatime"];
-    };
-
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/cdd62401-a3a4-418d-89f3-33902c62c2dc";
-      fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" "noatime"];
-    };
-
-  fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/cdd62401-a3a4-418d-89f3-33902c62c2dc";
-      fsType = "btrfs";
-      options = [ "subvol=persist" "compress=zstd" "noatime"];
-    };
-
-  fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/cdd62401-a3a4-418d-89f3-33902c62c2dc";
-      fsType = "btrfs";
-      options = [ "subvol=log" "compress=zstd" "noatime"];
-    };
-
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/092B-F1C3";
+    { device = "/dev/disk/by-uuid/6644-FCFF";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/93e1fc49-798d-407c-b3e9-71dbdd8ef756";
+      fsType = "btrfs";
+      options = [ "subvol=root" "compress=zstd" "noatime" ];
+    };
+
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/2e47f082-1140-4c53-8ebb-bb86dff92c84";
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/93e1fc49-798d-407c-b3e9-71dbdd8ef756";
+      fsType = "btrfs";
+      options = [ "subvol=home" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/var" =
+    { device = "/dev/disk/by-uuid/93e1fc49-798d-407c-b3e9-71dbdd8ef756";
+      fsType = "btrfs";
+      options = [ "subvol=var" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/93e1fc49-798d-407c-b3e9-71dbdd8ef756";
+      fsType = "btrfs";
+      options = [ "subvol=nix" "compress=zstd" "noatime" ];
+    };
+
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/a598cae8-cc56-4467-8149-c056ab3b2afe"; }
+    [ { device = "/dev/disk/by-uuid/3f701234-f441-425f-aab0-32d53fd28d6b"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

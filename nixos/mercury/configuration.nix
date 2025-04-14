@@ -92,7 +92,7 @@
 
 
   # Pen tablet support.
-  services.xserver.digimend.enable = true;
+  #services.xserver.digimend.enable = true;
   services.xserver.inputClassSections = [
     ''
       Identifier "XP-Pen Deco Pro MW"
@@ -178,7 +178,8 @@
     extraGroups = [ "wheel" "video" "input"]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
     packages = with pkgs; [
-      tree
+      eza
+      bat
     ];
 
   };
@@ -188,6 +189,7 @@
     firefox.enable = true;
     light.enable = true;
     steam.enable = true;
+    fish.enable = true;
     zsh.enable = true;
   };
   
@@ -207,10 +209,9 @@
     git git-lfs github-cli
     i3status
     imagemagick
-    inkscape
+    # inkscape
     jujutsu lazyjj
     killall
-    libreoffice
     lshw
     mate.caja
     mupdf
@@ -234,7 +235,6 @@
     scrot
     silver-searcher
     sxiv
-    texlive.combined.scheme-full 
     tldr
     unrar
     usbutils
@@ -244,7 +244,7 @@
     xclip
     zip unzip
     zoxide
-    krita
+    #krita
     udiskie
   ];
 

@@ -130,6 +130,7 @@
     cups-brother-hll2375dw
   ];
   
+  services.gvfs.enable = true;
   services.udisks2.enable = true;
 
   hardware.bluetooth.enable = true;
@@ -180,6 +181,7 @@
     packages = with pkgs; [
       eza
       bat
+	  copyq
     ];
 
   };
@@ -192,7 +194,6 @@
     fish.enable = true;
     zsh.enable = true;
   };
-  
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -201,9 +202,11 @@
     blueman
     bluez
     btop
+	chromium google-chrome
     clang clang-tools
     dunst libnotify # notification daemon
     fd
+	ffmpeg
     fzf
     gcc gdb
     git git-lfs github-cli
@@ -214,8 +217,11 @@
     killall
     lshw
     mate.caja
+	mmv
+	mpv
     mupdf
     neovim
+	nerdfonts
     go
     pango
     parallel
@@ -237,6 +243,7 @@
     silver-searcher
     sxiv
     tldr
+	typst
     unrar
     usbutils
     vim 
@@ -247,14 +254,17 @@
     zoxide
     #krita
     udiskie
+	gvfs          # core gvfs
   ];
 
   fonts.fontDir.enable = true;
   fonts.fontconfig.enable = true;
-
-  fonts.packages = with pkgs; [
-    cozette
-  ];
+	fonts.packages = with pkgs; [
+		(nerdfonts.override { fonts = [ "FiraCode" "Inconsolata" "Iosevka"]; })
+		fira-code
+		inconsolata
+		iosevka
+	];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

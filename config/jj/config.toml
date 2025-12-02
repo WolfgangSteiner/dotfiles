@@ -16,6 +16,7 @@ if(root,
         if(current_working_copy, "working_copy"),
         separate(" ",
             format_short_change_id_with_hidden_and_divergent_info(self),
+			commit_id.short(),
             separate(" ",
                 if(empty, label("empty", "(empty)")),
                 if(description,
@@ -32,9 +33,6 @@ if(root,
             if(self.conflict(),
                 label("conflict", "conflict")
             ),
-            if(config("ui.show-cryptographic-signatures").as_boolean(),
-                format_short_cryptographic_signature(self.signature())
-            )
         )
     )
 )

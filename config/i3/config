@@ -153,8 +153,8 @@ bindsym $mod+7 workspace 107
 bindsym $mod+8 workspace 108
 bindsym $mod+9 workspace 109
 bindsym $mod+0 workspace 110
-bindsym $mod+ssharp workspace 111 
-bindsym $mod+acute workspace  112 
+bindsym $mod+ssharp workspace 111
+bindsym $mod+acute workspace  112
 
 bindsym $mod+F1 workspace 201
 bindsym $mod+F2 workspace 202
@@ -279,7 +279,7 @@ bindsym $mod+Shift+r restart
 #bindsym $mod+$alt+l exec "~/.dotfiles/scripts/i3lock-extra.bash -s -g -p"
 
 bindsym $mod+Q exec "i3menu"
-bindsym $alt+Shift+v exec --no-startup-id /usr/bin/copyq toggle
+bindsym $mod+v exec --no-startup-id copyq toggle
 
 # Screenshots
 bindsym --release Print exec scrot --select ~/img/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
@@ -299,7 +299,7 @@ bar {
     position top
     status_command ~/bin/status 
     #font pango:monospace 14
-    font pango:Cozette HiDPI 15
+    font pango:Unifont Bold 12
     mode hide
     hidden_state hide
     modifier $mod

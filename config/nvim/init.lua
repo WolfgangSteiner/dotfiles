@@ -1,6 +1,7 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
+
 -- indentation
 vim.cmd("set noexpandtab")
 vim.cmd("set tabstop=4")
@@ -13,14 +14,15 @@ vim.cmd("set norelativenumber")
 
 vim.o.shell = "fish"
 
+vim.opt.histignore = { [[^\d\+$]] }
+
 -- keymap
-local builtin = require("telescope.builtin")
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 
 vim.api.nvim_create_user_command('VS', function()
   vim.cmd('vsplit')
   builtin.find_files()
 end, {})
+
 
 require("ccls").setup({lsp = {use_defaults = true}})
 

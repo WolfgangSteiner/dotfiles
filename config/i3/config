@@ -76,8 +76,9 @@ bindsym $mod+x kill
 # start rofi (a program launcher)
 bindsym $mod+space exec "rofi --max-history-size 100 -modi run,drun,web:~/.dotfiles/rofi/web.py,window,ssh -show run" 
 bindsym $mod+w exec "rofi -show window" 
-bindsym $mod+c exec "alacritty -T CALCULATOR -o font.size=8 -e python -q -i -c \\"from math import*;\\""
-for_window [title="CALCULATOR"] border pixel 1 floating enable resize set 960 1000 move position center
+bindsym $mod+c exec "alacritty --class CALCULATOR -o font.size=8 -e python -q -i -c \\"from math import*;\\""
+for_window [instance="CALCULATOR"] border pixel 4 floating enable 
+for_window [instance="CALCULATOR"] exec --no-startup-id sh -c 'xdotool search --classname "CALCULATOR" windowsize 320 200 windowmove 1600 880' 
 
 bindsym $mod+shift+space exec --no-startup-id ilia
 
